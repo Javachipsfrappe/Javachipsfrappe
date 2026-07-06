@@ -41,7 +41,7 @@ shutter and high, consistent frame rates. Fast-moving robots motion-blur and
 skew on a rolling-shutter consumer camera and PnP on blurred corners is garbage
 in, garbage out.
 
-### The yaw problem — my main contribution (Sep 2025)
+### The yaw problem (Sep 2025)
 
 Raw `solvePnP` on an armor plate has a well-known failure: the 4 keypoints are
 small and nearly coplanar, so the recovered **yaw is ambiguous and jittery** —
