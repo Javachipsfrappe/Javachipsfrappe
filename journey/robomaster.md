@@ -19,6 +19,12 @@ PID tuning and eventually became the testbed for the vision stack: first
 YOLOv8 on a RealSense + laptop, later a Jetson Orin AGX + Hikrobot industrial
 camera talking to the STM32 over UART, with Kalman-filter target prediction.
 
+![The Aimbot Trainer: GM6020 gimbal on a 3D-printed mount, RealSense camera, DR16 receiver, RoboMaster power module](aimbot-rig.png)
+
+*The trainer in action — live armor-plate detection on screen, driving the gimbal:*
+
+![Live detection on the trainer: bounding box on the monitor, GM6020 gimbal with camera](aimbot-detection.png)
+
 ### From bounding boxes to 3D pose
 
 Detection alone isn't aiming — the gimbal needs the target's 3D position. My
@@ -82,6 +88,10 @@ I ported my solver work into that framework:
 — bringing the C++ solver to parity with the tuned Python version: the
 constrained yaw estimation, the per-track smoothing, and the calibrated
 intrinsics.
+
+*Testing — the pipeline tracking a target robot across the arena:*
+
+![Testing the 2026 pipeline against a target robot](rmuc2026-tracking.png)
 
 Other contributions: YOLOv8 → **YOLOv11**, and the state
 estimator evolving from a (GPU) **particle filter** toward an **extended Kalman
