@@ -7,19 +7,19 @@ I build robot software — computer vision, autonomous navigation, and the embed
 - 🎓 FYP: Adaptive Visual Enhancement for Object Detection via Deep Reinforcement Learning
 - 📫 [barrywu5558@gmail.com](mailto:barrywu5558@gmail.com) · [LinkedIn](https://www.linkedin.com/in/barry-wu-314pi)
 
-## My journeys — built from my actual commit history
+## My robotics journeys
 
-**🎯 [RoboMaster CV, 2025 → 2026](journey/robomaster.md)** — from an "aimbot trainer"
+**🎯 [RoboMaster CV, 2025 → 2026](journey/robomaster.md)**: from an "aimbot trainer"
 rig (STM32 + PID + GM6020) to the competition pipeline: keypoint PnP, solving the
 yaw-ambiguity problem with a constrained ternary search, Hikrobot integration,
 camera calibration, and the Python → C++ port.
 
-**🧠 [FYP: Adaptive Visual Enhancement via Deep RL](journey/fyp.md)** — a PPO agent
+**🧠 [FYP: Adaptive Visual Enhancement via Deep RL](journey/fyp.md)**: a PPO agent
 that tunes the detector's confidence threshold and ROI at runtime instead of using
 a bigger model. Sim-trained on a Gymnasium environment, hardware-ready via an
 abstraction layer down to the STM32.
 
-**🤖 [EE4308: Autonomous Robot Systems](journey/ee4308.md)** — four commit-by-commit
+**🤖 [EE4308: Autonomous Robot Systems](journey/ee4308.md)**: four commit-by-commit
 iterations from vanilla pure pursuit to A* + Regulated Pure Pursuit with adaptive
 lookahead, proximity/curvature velocity regulation, and PI heading control.
 
