@@ -4,24 +4,22 @@ Generated from actual commit history (CV_RMUC_2026, RMUC_CV_2026_CPP).
 Barry: verify each one matches your actual reasoning before treating this as final.
 -->
 
-# RoboMaster CV journey — 2025 to 2026
+# RoboMaster CV journey — 2024 to 2026
 
-How our auto-aim vision pipeline evolved across two seasons, and my part in it.
-The team repos for the Python season are private; commits are cited by date and
-message, and I'm happy to walk through the code in person.
+How our auto-aim vision pipeline evolved across two seasons and my part in it.
 
 ---
 
-## 2025 — Season one: the Aimbot Trainer and the Python pipeline
+## 2024 Sep - 2025 Jan: the Aimbot Trainer and the Python pipeline
 
 I started from zero. To learn the auto-aim problem end-to-end, I asked a
-mechanical-engineering friend to build a gimbal test rig — GM6020 motors driven
+mechanical-engineering friend to build a gimbal test rig with GM6020 motors driven
 by an STM32 over CAN, controlled with an RC remote. That rig taught me embedded C,
-PID tuning, and eventually became the testbed for the vision stack: first
+PID tuning and eventually became the testbed for the vision stack: first
 YOLOv8 on a RealSense + laptop, later a Jetson Orin AGX + Hikrobot industrial
 camera talking to the STM32 over UART, with Kalman-filter target prediction.
 
-### From bounding boxes to 3D pose (Sep 2025)
+### From bounding boxes to 3D pose
 
 Detection alone isn't aiming — the gimbal needs the target's 3D position. My
 entry point was the **PnP solver** (`PnP Solver`, 2025-09-11): armor plates have
@@ -31,19 +29,19 @@ orientation from those correspondences.
 
 **Why keypoints + PnP instead of monocular depth or stereo:** the plate's
 dimensions are fixed and known, so 4 well-localized corners give metric 3D pose
-from a single camera — no depth sensor needed, which is also why the RealSense
+from a single camera with no depth sensor needed, which is also why the RealSense
 eventually became unnecessary.
 
-### Industrial camera integration (Sep 2025)
+### Industrial camera integration 
 
 I built the **Hikrobot camera integration** and the `detector_main` pipeline
 around it (`Establish MvCamConClass Dir, detector_main pipeline with Hik`,
-2025-09-18). **Why swap the RealSense for an industrial camera:** global
+2026-01-13). **Why swap the RealSense for an industrial camera:** global
 shutter and high, consistent frame rates. Fast-moving robots motion-blur and
-skew on a rolling-shutter consumer camera, and PnP on blurred corners is garbage
+skew on a rolling-shutter consumer camera and PnP on blurred corners is garbage
 in, garbage out.
 
-### The yaw problem — my main contribution (Sep–Nov 2025)
+### The yaw problem — my main contribution (Sep 2025)
 
 Raw `solvePnP` on an armor plate has a well-known failure: the 4 keypoints are
 small and nearly coplanar, so the recovered **yaw is ambiguous and jittery** —
@@ -71,7 +69,7 @@ My fix, built over three iterations:
 
 ---
 
-## 2026 — Season two: rewriting in C++ for competition
+## 2026: rewriting in C++ for competition
 
 The Python pipeline proved the algorithms but couldn't hit competition latency
 targets. The team rebuilt on a **C++ framework** ([nusrobomaster/RMUC_CV_2026_CPP](https://github.com/nusrobomaster/RMUC_CV_2026_CPP))
@@ -85,7 +83,7 @@ I ported my solver work into that framework:
 constrained yaw estimation, the per-track smoothing, and the calibrated
 intrinsics.
 
-Other season-two shifts, team-wide: YOLOv8 → **YOLOv11**, and the state
+Other contributions: YOLOv8 → **YOLOv11**, and the state
 estimator evolving from a (GPU) **particle filter** toward an **extended Kalman
 filter** — the PF's per-frame compute and tuning burden wasn't buying accuracy
 once the measurement model was well-calibrated, and tracking **real spinning
