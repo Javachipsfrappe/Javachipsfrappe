@@ -5,24 +5,23 @@ I build robot software — computer vision, autonomous navigation, and the embed
 
 - 🤖 Computer Vision developer, **NUS RoboMaster** (RMUC 2026 season)
 - 🎓 FYP: Adaptive Visual Enhancement for Object Detection via Deep Reinforcement Learning
-- 📖 **[The full story of how I got here → JOURNEY.md](JOURNEY.md)**
 - 📫 [barrywu5558@gmail.com](mailto:barrywu5558@gmail.com) · [LinkedIn](https://www.linkedin.com/in/barry-wu-314pi)
 
-## The short version
+## My journeys — built from my actual commit history
 
-**2025 — learned the stack from zero.** Built an "aimbot trainer" test rig with a friend:
-STM32 + PID control of GM6020 gimbal motors, YOLOv8 detection on a RealSense + laptop,
-then migrated to a Jetson Orin AGX + Hikrobot industrial camera with UART comms and
-Kalman-filter target prediction.
+**🎯 [RoboMaster CV, 2025 → 2026](journey/robomaster.md)** — from an "aimbot trainer"
+rig (STM32 + PID + GM6020) to the competition pipeline: keypoint PnP, solving the
+yaw-ambiguity problem with a constrained ternary search, Hikrobot integration,
+camera calibration, and the Python → C++ port.
 
-**2026 — made it competition-grade.** On the NUS RoboMaster CV team: YOLOv11, particle
-filter → extended Kalman filter, prediction and tracking of armor plates on real moving
-robots, USB comms.
+**🧠 [FYP: Adaptive Visual Enhancement via Deep RL](journey/fyp.md)** — a PPO agent
+that tunes the detector's confidence threshold and ROI at runtime instead of using
+a bigger model. Sim-trained on a Gymnasium environment, hardware-ready via an
+abstraction layer down to the STM32.
 
-**Now — pushing detection further (FYP).** ROI-guided detection and a reinforcement-learning
-feedback loop to improve detection rates without a bigger model.
-
-[Read the full journey with reflections →](JOURNEY.md)
+**🤖 [EE4308: Autonomous Robot Systems](journey/ee4308.md)** — four commit-by-commit
+iterations from vanilla pure pursuit to A* + Regulated Pure Pursuit with adaptive
+lookahead, proximity/curvature velocity regulation, and PI heading control.
 
 ## Projects
 
