@@ -64,7 +64,8 @@ for gimbal control, and camera intrinsics calibration
 
 ## Now — FYP: a different angle on detection
 
-My final-year project takes another approach to making detection better, rather
+My final-year project, **Adaptive Visual Enhancement for Object Detection via Deep
+Reinforcement Learning**, takes another approach to making detection better, rather
 than just running a bigger model:
 
 - **ROI-guided detection** — increase detection rates by focusing compute where targets are
