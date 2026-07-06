@@ -67,11 +67,4 @@ The benchmark suite logs per-step and per-episode metrics to CSV and generates
 report figures comparing the **static-parameter baseline vs the DRL agent**
 over matched episodes.
 
-## Status
-
-- [x] Full pipeline: detector, EKF tracker, PPO agent, sim environment, benchmarks
-- [x] Hardware abstraction: sim camera/serial + Hikrobot/STM32 implementations
-- [ ] Final benchmark numbers (baseline vs DRL) — in progress
-- [ ] On-hardware validation on the gimbal rig
-
 *The origin of all of this: [my RoboMaster journey](robomaster.md).*
